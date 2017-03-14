@@ -102,7 +102,7 @@
                   <%= link_to(sprited_text('arrow_branch', 'Branch package'), '#', class: 'show_dialog', data: { target: '#package_branch_dialog' }) %>
                 </li>
                 <li>
-                  <%= link_to(sprited_text('package_go', 'Submit package'), { :action => :submit_request_dialog, :project => @project, :package => @package }, :remote => true) %>
+                  <%= link_to(sprited_text('package_go', 'Submit package'), { :action => :submit_request_dialog, :project => @project, :package => @package, :revision => @revision }, :remote => true) %>
                 </li>
             <% end %>
             <% if User.current.can_modify_package? @package %>
@@ -110,7 +110,7 @@
                   <%= link_to sprited_text('package_edit', 'Edit description'), :action => 'edit', :project => @project, :package => @package, :spec_count => @spec_count -%>
                 </li>
                 <li>
-                  <%= link_to(sprited_text('package_delete', 'Delete package'), { :action => :delete_dialog, :package => @package, :project => @project }, :remote => true, id: 'delete-package') %>
+                  <%= link_to(sprited_text('package_delete', 'Delete package'), { :action => :delete_dialog, :package => @package, :project => @project, :revision => @revision }, :remote => true, id: 'delete-package') %>
                 </li>
                 <% if @services.present? %>
                   <li>
